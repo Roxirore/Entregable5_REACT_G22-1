@@ -12,3 +12,6 @@ option, select {
     cursor: pointer;
     transition: filter 50ms ease;
 }
+li {
+    list-style: none;
+}

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Pagination from '../components/Pokedex/Pagination'
 import PokeCard from '../components/Pokedex/PokeCard'
 import SelectTypes from '../components/Pokedex/SelectTypes'
 import Header from '../components/shared/Header'
@@ -38,6 +39,18 @@ const Pokedex = () => {
         e.target.pokemon.value = ''
     }
     
+// ----------------------PAGINACION---------------------------
+
+const [page, setPage] = useState(1)
+const [pokePerPage, setPokePerPage] = useState(9)
+const initialPoke = (page - 1) * pokePerPage
+const finalPoke = page * pokePerPage
+const maxPage = pokemons && Math.ceil(pokemons.length / pokePerPage) 
+
+
+
+// ----------------------PAGINACION---------------------------
+
   return (
     <div className='pokedex'>
         <Header/>
@@ -53,17 +66,27 @@ const Pokedex = () => {
 
             <SelectTypes setSelectValue={setSelectValue} />
         </div>
-
+        <Pagination 
+            page={page} 
+            maxPage={maxPage}
+            setPage={setPage}
+        />
         <div className='pokedex__container-pokemon'>
             {
-                pokemons?.results.map(pokemon => (
+                pokemons?.results.slice(initialPoke, finalPoke).map(pokemon => (
                     <PokeCard
-                        key={pokemon.url}
-                        pokemon={pokemon}
+                    key={pokemon.url}
+                    pokemon={pokemon}
                     />
-                ))
-            }
+                    ))
+                }
         </div>
+        <br /><br /><br />
+        <Pagination 
+            page={page} 
+            maxPage={maxPage}
+            setPage={setPage}
+        />
     </div>
   )
 }
