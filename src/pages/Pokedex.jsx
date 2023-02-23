@@ -15,7 +15,7 @@ const Pokedex = () => {
 
     useEffect(() => {
         if (selectValue === 'allpokemons') {
-            const url = 'https://pokeapi.co/api/v2/pokemon?limit=100&offset=0'
+            const url = 'https://pokeapi.co/api/v2/pokemon?limit=99999&offset=0'
             axios.get(url)
                 .then(res=>setPokemons(res.data))
                 .catch(error=>console.log(error))
@@ -45,12 +45,14 @@ const Pokedex = () => {
             <span className='pokedex__title-name'>Hi {nameTrainer}</span>, here find your favorite pokemon.
         </h1>
 
-        <form onSubmit={handleSubmit}>
-            <input id="pokemon" type="text" />
-            <button>Search</button>
-        </form>
+        <div className='pokedex__actions'>
+            <form className='pokedex__actions__form' onSubmit={handleSubmit}>
+                <input className='pokedex__actions__form-input' id="pokemon" type="text" />
+                <button className='pokedex__actions__form-btn'>Search</button>
+            </form>
 
-        <SelectTypes setSelectValue={setSelectValue} />
+            <SelectTypes setSelectValue={setSelectValue} />
+        </div>
 
         <div className='pokedex__container-pokemon'>
             {

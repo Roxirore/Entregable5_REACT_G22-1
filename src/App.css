@@ -5,5 +5,10 @@
     min-height: 100vh;
 }
 option, select {
-    font-size: 2rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0 0.1em 0.3em #0003;
+    color: whitesmoke;
+    cursor: pointer;
+    transition: filter 50ms ease;
 }
