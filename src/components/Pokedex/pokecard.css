@@ -32,6 +32,8 @@
 .card__type-list {
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding-right: 2.8rem;
     gap: 1.2em;
 }
 .card__type-item {

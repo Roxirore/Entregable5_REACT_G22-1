@@ -22,6 +22,13 @@ const dispatch = useDispatch()
             <input className='home__input ' id='name' type="text" />
             <button className='home__btn'>Start</button>
         </form>
+        <div className='footer'>
+            <div className='footer__black'>
+                <div className='footer__circle'>
+                    <div className='footer__circle-int'></div>
+                </div>
+            </div>
+        </div>
     </div>
   )
 }
