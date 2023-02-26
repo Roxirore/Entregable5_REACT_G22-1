@@ -46,9 +46,7 @@ const [pokePerPage, setPokePerPage] = useState(9)
 const initialPoke = (page - 1) * pokePerPage
 const finalPoke = page * pokePerPage
 const maxPage = pokemons && Math.ceil(pokemons.length / pokePerPage) 
-
-
-
+ 
 // ----------------------PAGINACION---------------------------
 
   return (
